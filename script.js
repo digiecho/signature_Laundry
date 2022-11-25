@@ -33,151 +33,153 @@ gsap.registerPlugin(
   ScrollSmoother
 );
 // create the smooth scroller FIRST!
-let smoother = ScrollSmoother.create({
-  smooth: 0.4, // seconds it takes to "catch up" to native scroll position
-  effects: true // look for data-speed and data-lag attributes on elements and animate accordingly
-});
+// let smoother = ScrollSmoother.create({
+//   smooth: 0.4, // seconds it takes to "catch up" to native scroll position
+//   effects: true, // look for data-speed and data-lag attributes on elements and animate accordingly
+// });
 document.getElementById("myPath").style.visibility = "visible";
 document.getElementById("circle").style.visibility = "visible";
 var tl = gsap.timeline({
   scrollTrigger: {
-    trigger: ".group",
+    trigger: "#group",
     pin: true, // pin the trigger element while active
     start: "top top", // when the top of the trigger hits the top of the viewport
-    // end: "+=500",
-    // markers:true,// end after scrolling 500px beyond the start
-    //onUpdate: ScrollTrigger.update,
     scrub: 0.3, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    invalidateOnRefresh: true,
     snap: [
-      0.2217741935483871,
-      0.5120967741935484,
-      0.6774193548387097,
-      0.8387096774193549,
-      1,
-      1
-    ]
+      0.2217741935483871, 0.5120967741935484, 0.6774193548387097,
+      0.8387096774193549, 1, 1,
+    ],
   },
-  defaults: { ease: "ease", duration: 24.8 }
+  defaults: { ease: "ease", duration: 24.8 },
 });
 var tl2 = gsap.timeline({ defaults: { ease: "none", duration: 11 } });
 // draw in and then out
+gsap.set("#group", {
+  xPercent: 50,
+  yPercent: 50,
+  left: "50%",
+  top: "50%",
+  transformOrigin: "-50%, -50%",
+});
+
 gsap.set(".squiggle", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
   //y: 10
 });
 gsap.set(".washingmachine", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".washingline", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".i", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".t", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".the1", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".the2", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".the3", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".the3", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".laundry1", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".laundry3", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".laundry2", {
   drawSVG: "100% 100%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".co1", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".co2", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".iron", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set(".bed", {
   drawSVG: "0%",
-  opacity: 0
+  opacity: 0,
 });
 gsap.set("#circle", {
   xPercent: -50,
   yPercent: -50,
-  transformOrigin: "50%, 50%",
+  transformOrigin: "-50%, -50%",
   opacity: 0,
   motionPath: {
     path: ".squiggle",
     align: ".squiggle",
     alignOrigin: [0.5, 0.5],
     start: 0,
-    end: 1
-  }
+    end: 1,
+  },
 });
 gsap.set(".textscroll", {
-  x: "150%"
+  xPercent: 150,
 });
 gsap.set(".boldscroll", {
-  opacity: 0
+  opacity: 0,
 });
 gsap.set("#laundry", {
-  x: "250%",
-  opacity: 0.1
+  xPercent: 250,
+  opacity: 0.1,
 });
 gsap.set("#linen", {
-  x: "350%",
-  opacity: 0.1
+  xPercent: 350,
+  opacity: 0.1,
 });
 gsap.set("#ironing", {
-  x: "250%",
-  opacity: 0.1
+  xPercent: 250,
+  opacity: 0.1,
 });
 gsap.set("#hire", {
-  x: "450%",
-  opacity: 0.1
+  xPercent: 450,
+  opacity: 0.1,
 });
 gsap.set("#purchase", {
-  x: "250%",
-  opacity: 0.1
+  xPercent: 250,
+  opacity: 0.1,
 });
 
 //to animations
 tl.to(".squiggle", {
   duration: 2,
   drawSVG: "0% 100%",
-  opacity: 1
+  opacity: 1,
 })
   .to(
     ".i",
     {
       duration: 0.1,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     3
   )
@@ -186,7 +188,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     3.3
   )
@@ -195,7 +197,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     3.5
   )
@@ -204,7 +206,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     3.6
   )
@@ -213,7 +215,7 @@ tl.to(".squiggle", {
     {
       duration: 0.4,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     3.7
   )
@@ -222,7 +224,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     4.1
   )
@@ -231,7 +233,7 @@ tl.to(".squiggle", {
     {
       duration: 0.6,
       drawSVG: "100%",
-      opacity: 1
+      opacity: 1,
     },
     4.2
   )
@@ -240,7 +242,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     4.8
   )
@@ -249,7 +251,7 @@ tl.to(".squiggle", {
     {
       duration: 0.2,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     5
   )
@@ -258,7 +260,7 @@ tl.to(".squiggle", {
     {
       duration: 0.3,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     5.2
   )
@@ -268,7 +270,7 @@ tl.to(".squiggle", {
     {
       duration: 0.3,
       drawSVG: "0%",
-      opacity: 0
+      opacity: 0,
     },
     6.5
   )
@@ -277,7 +279,7 @@ tl.to(".squiggle", {
     {
       duration: 0.3,
       drawSVG: "0%",
-      opacity: 0
+      opacity: 0,
     },
     6.8
   )
@@ -286,7 +288,7 @@ tl.to(".squiggle", {
     {
       duration: 0.6,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     7.1
   )
@@ -295,7 +297,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     7.7
   )
@@ -304,7 +306,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     7.8
   )
@@ -313,7 +315,7 @@ tl.to(".squiggle", {
     {
       duration: 0.4,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     7.9
   )
@@ -322,7 +324,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     8.3
   )
@@ -331,7 +333,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0% ",
-      opacity: 1
+      opacity: 1,
     },
     8.4
   )
@@ -340,7 +342,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     8.5
   )
@@ -349,7 +351,7 @@ tl.to(".squiggle", {
     {
       duration: 0.1,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     8.6
   )
@@ -358,15 +360,15 @@ tl.to(".squiggle", {
     {
       duration: 2,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     8.7
   )
   .to(
-    "#laundry", ////FIRST TEXT
+    "#laundry", ////FIRST TExPercentT
     {
-      x: 0,
-      duration: 2
+      xPercent: 0,
+      duration: 2,
     },
     10.7
   )
@@ -374,8 +376,8 @@ tl.to(".squiggle", {
     "#textscroll",
     {
       duration: 2,
-      x: "0%",
-      opacity: 1
+      xPercent: 0,
+      opacity: 1,
     },
     10.7
   )
@@ -384,7 +386,7 @@ tl.to(".squiggle", {
     {
       duration: 2,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     10.7
   )
@@ -394,15 +396,15 @@ tl.to(".squiggle", {
     {
       duration: 2,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     12.8
   )
   .to(
     "#laundry",
     {
-      x: "-200%",
-      duration: 2
+      xPercent: -200,
+      duration: 2,
     },
     12.8
   )
@@ -410,24 +412,24 @@ tl.to(".squiggle", {
     "#textscroll",
     {
       duration: 2,
-      x: "-150%",
-      opacity: 1
+      xPercent: -150,
+      opacity: 1,
     },
     12.8
   )
   .to(
     "#ironing",
     {
-      x: 0,
-      duration: 2
+      xPercent: 0,
+      duration: 2,
     },
     14.8
   )
   .to(
     "#textscroll2",
     {
-      x: 0,
-      duration: 2
+      xPercent: 0,
+      duration: 2,
     },
     14.8
   )
@@ -436,7 +438,7 @@ tl.to(".squiggle", {
     {
       duration: 2,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     14.8
   )
@@ -444,16 +446,16 @@ tl.to(".squiggle", {
   .to(
     "#ironing",
     {
-      x: "-300%",
-      duration: 2
+      xPercent: -300,
+      duration: 2,
     },
     16.8
   )
   .to(
     "#textscroll2",
     {
-      x: "-300%",
-      duration: 2
+      xPercent: -300,
+      duration: 2,
     },
     16.8
   )
@@ -462,23 +464,23 @@ tl.to(".squiggle", {
     {
       duration: 2,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     16.8
   )
   .to(
     "#linen",
     {
-      x: 0,
-      duration: 2
+      xPercent: 0,
+      duration: 2,
     },
     18.8
   )
   .to(
     "#textscroll3",
     {
-      x: 0,
-      duration: 2
+      xPercent: 0,
+      duration: 2,
     },
     18.8
   )
@@ -487,7 +489,7 @@ tl.to(".squiggle", {
     {
       duration: 2,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     18.8
   )
@@ -495,16 +497,16 @@ tl.to(".squiggle", {
   .to(
     "#linen",
     {
-      x: "-300%",
-      duration: 2
+      xPercent: -300,
+      duration: 2,
     },
     20.8
   )
   .to(
     "#textscroll3",
     {
-      x: "-300%",
-      duration: 2
+      xPercent: -300,
+      duration: 2,
     },
     20.8
   )
@@ -513,7 +515,7 @@ tl.to(".squiggle", {
     {
       duration: 2,
       drawSVG: "0%",
-      opacity: 1
+      opacity: 1,
     },
     20.8
   )
@@ -522,7 +524,7 @@ tl.to(".squiggle", {
     {
       duration: 2,
       drawSVG: "0% 100%",
-      opacity: 1
+      opacity: 1,
     },
     22.8
   )
@@ -530,16 +532,16 @@ tl.to(".squiggle", {
   .to(
     "#hire",
     {
-      x: 0,
-      duration: 2
+      xPercent: 0,
+      duration: 2,
     },
     22.8
   )
   .to(
     "#textscroll5",
     {
-      x: 0,
-      duration: 2
+      xPercent: 0,
+      duration: 2,
     },
     22.8
   )
@@ -553,10 +555,10 @@ tl.to(
     motionPath: {
       path: ".squiggle",
       align: ".squiggle",
-      alignOrigin: [0.5, 0.5]
+      alignOrigin: [0.5, 0.5],
     },
     duration: 2,
-    opacity: 1
+    opacity: 1,
   },
   0
 )
@@ -566,9 +568,9 @@ tl.to(
       motionPath: {
         path: ".squiggle",
         align: ".squiggle",
-        alignOrigin: [0.5, 0.5]
+        alignOrigin: [0.5, 0.5],
       },
-      duration: 2
+      duration: 2,
     },
     8.7
   )
@@ -578,9 +580,9 @@ tl.to(
       motionPath: {
         path: ".washingmachine",
         align: ".washingmachine",
-        alignOrigin: [0.5, 0.5]
+        alignOrigin: [0.5, 0.5],
       },
-      duration: 2
+      duration: 2,
     },
     10.7
   )
@@ -590,9 +592,9 @@ tl.to(
       motionPath: {
         path: ".washingmachine",
         align: ".washingmachine",
-        alignOrigin: [0.5, 0.5]
+        alignOrigin: [0.5, 0.5],
       },
-      duration: 2
+      duration: 2,
     },
     12.8
   )
@@ -602,9 +604,9 @@ tl.to(
       motionPath: {
         path: ".iron",
         align: ".iron",
-        alignOrigin: [0.5, 0.5]
+        alignOrigin: [0.5, 0.5],
       },
-      duration: 2
+      duration: 2,
     },
     14.8
   )
@@ -614,9 +616,9 @@ tl.to(
       motionPath: {
         path: ".iron",
         align: ".iron",
-        alignOrigin: [0.5, 0.5]
+        alignOrigin: [0.5, 0.5],
       },
-      duration: 2
+      duration: 2,
     },
     16.8
   )
@@ -626,9 +628,9 @@ tl.to(
       motionPath: {
         path: ".bed",
         align: ".bed",
-        alignOrigin: [0.5, 0.5]
+        alignOrigin: [0.5, 0.5],
       },
-      duration: 2
+      duration: 2,
     },
     18.8
   )
@@ -638,9 +640,9 @@ tl.to(
       motionPath: {
         path: ".bed",
         align: ".bed",
-        alignOrigin: [0.5, 0.5]
+        alignOrigin: [0.5, 0.5],
       },
-      duration: 2
+      duration: 2,
     },
     20.8
   )
@@ -650,9 +652,9 @@ tl.to(
       motionPath: {
         path: ".washingline",
         align: ".washingline",
-        alignOrigin: [0.5, 0.5]
+        alignOrigin: [0.5, 0.5],
       },
-      duration: 2
+      duration: 2,
     },
     22.8
   );
@@ -665,7 +667,7 @@ gsap.to(
     repeat: -1,
     yoyo: true,
     scale: 2,
-    transformOrigin: "50% 50%"
+    transformOrigin: "50% 50%",
   },
   2.1
 );
@@ -686,7 +688,7 @@ var snapPos = labelsToProgress(tl, [
   "ending2",
   "ending3",
   "washend",
-  "theactualend"
+  "theactualend",
 ]);
 console.log(snapPos);
 
